@@ -12,8 +12,8 @@ const render = async (filename) => {
         resources: 'usable',
     })
 
-    return new Promise((resolve, reject) => {
-        dom.window.document.addEventListener('DOMContentLoaded', (ev) => {
+    return new Promise((resolve) => {
+        dom.window.document.addEventListener('DOMContentLoaded', () => {
             resolve(dom)
         })
     })
