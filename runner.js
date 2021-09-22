@@ -4,6 +4,7 @@ const chalk = require('chalk')
 
 const path = require('path')
 
+const forbiddenDirs = ['node_modules']
 class Runner {
     constructor() {
         this.testFiles = []
@@ -44,7 +45,7 @@ class Runner {
 
             if (stats.isFile() && file.includes('.test.js')) {
                 this.testFiles.push({ name: filepath, shortName: file })
-            } else if (stats.isDirectory()) {
+            } else if (stats.isDirectory() && !forbiddenDirs.includes(file)) {
                 const childFiles = await fs.promises.readdir(filepath)
 
                 files.push(...childFiles.map((f) => path.join(file, f)))
