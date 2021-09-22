@@ -14,6 +14,7 @@ module.exports = {
     plugins: ['react'],
     rules: {},
     globals: {
+        render: 'readonly',
         beforeEach: 'writable',
         it: 'writable',
     },
